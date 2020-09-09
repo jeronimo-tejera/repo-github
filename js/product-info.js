@@ -1,4 +1,5 @@
 var product = {}
+var comments = []
 function showImagesGallery(array){
 
     let htmlContentToAppend = "";
@@ -18,7 +19,23 @@ function showImagesGallery(array){
     }
 }
 
+function showComments(array){
+    let htmlContentToAppend = "";
 
+    for(let i = 0; i < array.length; i++){
+        let comment = array[i];
+        htmlContentToAppend +=`
+        <h5>`+comment.user+`</h5>
+        <small style="text align:right"> Fecha:`+comment.dateTime+`</small>
+        <div>
+           <p>`+ comment.description+`</p>
+           <small>Rate: `+` ` +comment.score+`</small> 
+        </div>
+        <hr/>
+        `
+        document.getElementById("Comentarios").innerHTML = htmlContentToAppend;
+    }
+}
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
@@ -46,3 +63,11 @@ document.addEventListener("DOMContentLoaded", function(e){
         }
     });
 });
+document.addEventListener("DOMContentLoaded", function (e){
+    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
+        if (resultObj.status === "ok"){
+            comments = resultObj.data;
+            showComments(comments);
+        }
+    })
+})
