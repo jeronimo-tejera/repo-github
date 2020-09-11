@@ -1,4 +1,4 @@
-var product = {}
+var product = []
 var comments = []
 function showImagesGallery(array){
 
@@ -10,7 +10,9 @@ function showImagesGallery(array){
         htmlContentToAppend += `
         <div class="col-lg-3 col-md-4 col-6">
             <div class="d-block mb-4 h-100">
+                <td>
                 <img class="img-fluid img-thumbnail" src="` + images + `" alt="">
+                </td>
             </div>
         </div>
         `
@@ -29,7 +31,7 @@ function showComments(array){
         <small style="text align:right"> Fecha:`+comment.dateTime+`</small>
         <div>
            <p>`+ comment.description+`</p>
-           <small>Rate: `+` ` +comment.score+`</small> 
+           <small>Rate: `+` ` + comment.score+`</small> 
         </div>
         <hr/>
         `
@@ -56,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function(e){
             categoryDescriptionHTML.innerHTML = product.description;
             productCountHTML.innerHTML = product.soldCount;
             productCriteriaHTML.innerHTML = product.category;
-            productCoast.innerHTML = product.cost;
+            productCoast.innerHTML = product.cost +" "+ 'USD';
 
             //Muestro las imagenes en forma de galería
             showImagesGallery(product.images);
