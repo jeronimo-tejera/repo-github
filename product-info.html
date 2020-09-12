@@ -74,9 +74,14 @@
         <div id='Comentarios'>
         </div>
         <div>
-          <form onsubmit="comentar()">
-            <textarea id='comentar' name="comentarios" rows="5" cols="100">Escribe aquí tus comentarios</textarea>
-            <input type="submit" value="enviar">
+          <form>
+            <textarea id='comentar' name="comentarios" rows="5" cols="100"></textarea>
+            <input id="1" type="radio" value="1" name='rate' onclick="sessionStorage.setItem('rate', rat1)">1
+            <input id="2"  type="radio" value="2" name='rate' onclick="sessionStorage.setItem('rate', rat2)">2
+            <input id="3"  type="radio" value="3" name='rate' onclick="sessionStorage.setItem('rate', rat3)">3
+            <input id="4"  type="radio" value="4" name='rate' onclick="sessionStorage.setItem('rate', rat4)">4
+            <input id="5"  type="radio" value="5" name='rate' onclick="sessionStorage.setItem('rate', rat5)">5
+            <input type="button" value="enviar" onclick="comentarA()"> 
         </form>
         </div>
       </div>

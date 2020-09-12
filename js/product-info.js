@@ -1,5 +1,13 @@
 var product = []
 var comments = []
+var rat1 = document.getElementById('1').value;
+var rat2 = document.getElementById('2').value;
+var rat3 = document.getElementById('3').value;
+var rat4 = document.getElementById('4').value;
+var rat5 = document.getElementById('5').value;
+
+
+
 function showImagesGallery(array){
 
     let htmlContentToAppend = "";
@@ -38,6 +46,22 @@ function showComments(array){
         document.getElementById("Comentarios").innerHTML = htmlContentToAppend;
     }
 }
+
+function comentarA(){
+    var use = sessionStorage.getItem("user");
+    var d = new Date();
+    var scores = sessionStorage.getItem('rate');
+    var descriptio = document.getElementById('comentar').value;
+    var nuevoComentario = {
+        score : scores,
+        description : descriptio,
+        user : use,
+        dateTime : d.getFullYear()+`-`+(d.getUTCMonth()+1)+`-`+d.getDate()+` `+``+``+d.getHours()+`:`+d.getMinutes()+`:`+d.getSeconds(),
+    }
+    comments.push(nuevoComentario);
+    showComments(comments);
+}
+
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
