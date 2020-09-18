@@ -97,14 +97,14 @@ document.addEventListener("DOMContentLoaded", function(e){
                         <td>    
                             <div class="row">
                                 <div class="col-3">
-                                    <img src="` + productrelated.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
+                                    <img src="` + productrelated.imgSrc + `" alt="` + productrelated.description + `" class="img-thumbnail">
                                 </div>
                                 <div class="col">
                                     <div class="d-flex w-100 justify-content-between">
-                                        <h5 class="mb-1">`+ product.name +`</h5>
-                                        <small class="text-muted">Precio:   `+ product.cost + ` USD</small>
+                                        <h5 class="mb-1">`+ productrelated.name +`</h5>
+                                        <small class="text-muted">Precio:   `+ productrelated.cost + ` USD</small>
                                     </div>
-                                    <small class="mb-1">` + product.description + `</small>
+                                    <small class="mb-1">` + productrelated.description + `</small>
                                 </div>
                             </div>
                         </td>    
