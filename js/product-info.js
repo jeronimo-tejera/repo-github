@@ -5,21 +5,20 @@ var rat2 = document.getElementById('2').value;
 var rat3 = document.getElementById('3').value;
 var rat4 = document.getElementById('4').value;
 var rat5 = document.getElementById('5').value;
-
-
+var related = []
 
 function showImagesGallery(array){
 
     let htmlContentToAppend = "";
 
     for(let i = 0; i < array.length; i++){
-        let images = array[i];
+        let image = array[i];
 
         htmlContentToAppend += `
         <div class="col-lg-3 col-md-4 col-6">
             <div class="d-block mb-4 h-100">
                 <td>
-                <img class="img-fluid img-thumbnail" src="` + images + `" alt="">
+                <img class="img-fluid img-thumbnail" src="` + image + `" alt="">
                 </td>
             </div>
         </div>
@@ -86,6 +85,34 @@ document.addEventListener("DOMContentLoaded", function(e){
 
             //Muestro las imagenes en forma de galería
             showImagesGallery(product.images);
+
+            getJSONData(PRODUCTS_URL).then(function(resultObj){
+                if(resultObj.status === "ok"){
+                    products = resultObj.data;
+
+                    let htmlContentToAppend = "";
+                    product.relatedProducts.forEach(function(indice) {
+                        let productrelated = products[indice] ;
+                        htmlContentToAppend +=`
+                        <td>    
+                            <div class="row">
+                                <div class="col-3">
+                                    <img src="` + productrelated.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
+                                </div>
+                                <div class="col">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">`+ product.name +`</h5>
+                                        <small class="text-muted">Precio:   `+ product.cost + ` USD</small>
+                                    </div>
+                                    <small class="mb-1">` + product.description + `</small>
+                                </div>
+                            </div>
+                        </td>    
+                        `
+                        document.getElementById("relacionados").innerHTML = htmlContentToAppend;
+                    });
+                }
+            })
         }
     });
 });
@@ -96,4 +123,4 @@ document.addEventListener("DOMContentLoaded", function (e){
             showComments(comments);
         }
     })
-})
+});
