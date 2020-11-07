@@ -60,20 +60,39 @@
       </script>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 7 (Fecha de entrega: 8/11/202020) -> Punto 1 y 2.</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <main role="main" class="pb-5">
+    <div class="text-center p-4">
+      <h1>Mi perfil</h1>
     </div>
-  </div>
-  <footer class="text-muted bg-light">
-    <div class="container">
-      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+    <div class="container p-5">
+      <div class="row">
+        <div class="col">
+          <h5>Nombre:</h5>
+          <input id="Nombre" type="text" size="36">
+        </div>
+        <div class="col">
+          <h5>Apellido:</h5>
+          <input id="Apellido" type="text" size="36">
+        </div>
+        <div class="w-100"></div>
+        <div class="col">
+          <h5>E-mail:</h5>
+          <input type="text" id="mail" size="36">
+        </div>
+        <div class="col">
+          <h5>Teléfono:</h5>
+          <input id="Telefono" type="text" size="36">
+        </div>
+        <div class="col">
+          <h5>Edad:</h5>
+          <input id="Edad" type="text" size="36">
+        </div>
+        <div>
+          <input type="submit" value="Guardar Datos" onclick="guardar()">
+        </div>
+      </div>
     </div>
-  </footer>
+  </main>
   <div class="alert fade alert-success" role="alert" id="alertResult">
     <span id="resultSpan"></span>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
