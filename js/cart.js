@@ -10,8 +10,9 @@ function showCart(array){
                         <td>`+producto.name+`</td>
                         <td name="costo">`+producto.unitCost+`</td>
                         <td><input type="number" name="cantidad" min="1" max="100" onchange="subtotalporART()"></td>
-                        <td>`+producto.currency+`</td>
-                        <td id="subtotal`+i+`"></td>
+                        <td name="moneda">`+producto.currency+`</td>
+                        <td name="subtotal"></td>
+                        <td name="stUSD"></td>
                     </tr>
         `
         document.getElementById("Funca! Carajo!").innerHTML = htmlContentToAppend;
@@ -21,17 +22,20 @@ function showCart(array){
 
 
 function subtotalporART(){
-    let html = "";
     var arrayCantidades = document.getElementsByName("cantidad");
     var arrayPrecio = document.getElementsByName("costo");
-    for(let i=0; i<arrayCantidades.length; i++){
-        var costo = parseInt(arrayPrecio[i].innerHTML)
-        html +=``+arrayCantidades[i].value*costo+``;
-        if(i<i+1){
-            document.getElementById("subtotal"+i+"").innerHTML = html;
+    var subtotal = document.getElementsByName("subtotal");
+    var moneda = document.getElementsByName("moneda");
+    for (let i=0; i<arrayCantidades.length; i++){
+        let subtotalcalculo = parseInt(arrayPrecio[i].innerText)*arrayCantidades[i].value;
+        subtotal[i].innerHTML = String(subtotalcalculo);
+        if(moneda[i].textContent === "UYU"){
+            let stUSDcal = subtotalcalculo / 40
+            document.getElementsByName("stUSD")[i].innerHTML = stUSDcal
+        }else{
+            document.getElementsByName("stUSD")[i].innerHTML = subtotalcalculo
         }
-
-    }
+     }
 
 }
 
