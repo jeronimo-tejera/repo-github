@@ -20,12 +20,33 @@ function showCart(array){
 }
 
 
+function total(){
+    var subtotales = document.getElementsByName("stUSD");
+    let totalpreenvio = 0;
+    for (let i=0; i<subtotales.length; i++){
+        totalpreenvio += parseFloat(subtotales[i].textContent);
+        document.getElementById("Antesenvio").innerHTML = "Costo sin envío:"+totalpreenvio+"USD"
+    }
+
+}
+
+function totalfin(num){
+    var subtotales = document.getElementsByName("stUSD");
+    let totalpreenvio = 0;
+    let totalfinal = 0;
+    for (let i=0; i<subtotales.length; i++){
+        totalpreenvio += parseFloat(subtotales[i].textContent);
+    }
+    totalfinal = (1+num*0.01)*totalpreenvio 
+    document.getElementById("totalfinal").innerHTML = "Total:"+totalfinal+"USD"
+}
 
 function subtotalporART(){
     var arrayCantidades = document.getElementsByName("cantidad");
     var arrayPrecio = document.getElementsByName("costo");
     var subtotal = document.getElementsByName("subtotal");
     var moneda = document.getElementsByName("moneda");
+    var medioenv = document.getElementsByName("envíos");
     for (let i=0; i<arrayCantidades.length; i++){
         let subtotalcalculo = parseInt(arrayPrecio[i].innerText)*arrayCantidades[i].value;
         subtotal[i].innerHTML = String(subtotalcalculo);
@@ -36,7 +57,7 @@ function subtotalporART(){
             document.getElementsByName("stUSD")[i].innerHTML = subtotalcalculo
         }
      }
-
+     total()
 }
 
 

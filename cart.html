@@ -80,7 +80,83 @@
           <tbody id="Funca! Carajo!">
           </tbody>
       </table>
+      <div class="container">
+        <div class="row">
+          <div class="col-7" id="Antesenvio"></div>
+        </div>
+        <div class="row">
+          <div class="col-7" id="totalfinal"></div>
+        </div>
+      </div>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Forma de Pago
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Forma de pago</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <select name="select">
+          <option value="1" >Tarjeta de crédito</option> 
+          <option value="2">Efectivo</option>
+          <option value="3">Transferencia</option>
+        </select>
+        <hr>
+        <input type="text" placeholder="nro de tarjeta">
+        <input type="text" placeholder="nro de cuenta">
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" onclick="validar()">Enviar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
   </div>
+</div>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModl">
+  Método de envío
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModl" tabindex="-1" aria-labelledby="exampleModlLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Forma de pago</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="container">
+            <input name="envío" type="radio" id="Premium" onclick="totalfin(15)" value="15">
+            <label for="Premium">Premium (2-5 días) 15%</label>
+          <hr>
+            <input type="radio" id="Express" name="envío" onclick="totalfin(7)" value="7">
+            <label for="Express">Express (5-8 días) 7%</label>
+          <hr>
+            <input type="radio" id="Standard" name="envío" onclick="totalfin(5)" value="5">
+            <label for="Standard">Standard (12 a 15 días) 5%</label>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" onclick="validar()">Enviar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
   </div>
   <div id="spinner-wrapper">
     <div class="lds-ring">
